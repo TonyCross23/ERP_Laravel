@@ -60,5 +60,5 @@ class StockController extends Controller
             'warehouse_id' => 'required|exists:warehouses,id',
             'quantity'     => 'required|integer|min:0',
         ]);
-    }
+    }   
 }

@@ -42,6 +42,11 @@ const mainNavItems: NavItem[] = [
         href: '/stocks',
         icon: SquareXIcon,
     },
+     {
+        title: 'Sale',
+        href: '/sales',
+        icon: SquareXIcon,
+    },
 ];
 
 const footerNavItems: NavItem[] = [

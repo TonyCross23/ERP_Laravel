@@ -12,9 +12,13 @@ class Product extends Model
     {
         return $this->hasMany(Stock::class);
     }
+    public function stockMoves()
+    {
+        return $this->hasMany(StockMove::class);
+    }
 
-    // Warehouse အားလုံးမှာရှိတဲ့ ပစ္စည်းလက်ကျန်စုစုပေါင်းကို သိချင်ရင်
-    public function getTotalStockAttribute()
+    // လက်ရှိ Warehouse အားလုံးပေါင်း လက်ကျန်ကို တန်းခေါ်ဖို့
+    public function getCurrentStockAttribute()
     {
         return $this->stocks()->sum('quantity');
     }

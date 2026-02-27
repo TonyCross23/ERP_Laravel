@@ -35,9 +35,13 @@ class AppServiceProvider extends ServiceProvider
         );
 
         $this->app->bind(
-            \App\Contracts\Dao\StockDaoInterface::class, 
+            \App\Contracts\Dao\StockDaoInterface::class,
             \App\Dao\StockDao::class
         );
+
+        $this->app->bind(\App\Contracts\Dao\SalesOrderDaoInterface::class, \App\Dao\SalesOrderDao::class);
+        $this->app->bind(\App\Contracts\Services\SalesOrderServiceInterface::class, \App\Services\SalesOrderService::class);
+        $this->app->bind(\App\Contracts\Dao\InvoiceDaoInterface::class, \App\Dao\InvoiceDao::class);
 
         // --- Products Module Binding ---
         $this->app->bind(
@@ -55,9 +59,14 @@ class AppServiceProvider extends ServiceProvider
         );
 
         $this->app->bind(
-            \App\Contracts\Services\StockServiceInterface::class, 
+            \App\Contracts\Services\StockServiceInterface::class,
             \App\Services\StockService::class
         );
+
+        $this->app->bind(\App\Contracts\Dao\WarehouseDaoInterface::class, \App\Dao\WarehouseDao::class);
+        $this->app->bind(\App\Contracts\Services\WarehouseServiceInterface::class, \App\Services\WarehouseService::class);
+        $this->app->bind(\App\Contracts\Dao\StockDaoInterface::class, \App\Dao\StockDao::class);
+        $this->app->bind(\App\Contracts\Services\StockServiceInterface::class, \App\Services\StockService::class);
     }
 
     /**

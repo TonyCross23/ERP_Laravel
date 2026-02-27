@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\MasterData\ContactController;
 use App\Http\Controllers\MasterData\ProductController;
+use App\Http\Controllers\SalesOrderController;
 use App\Http\Controllers\StockController;
 use App\Http\Controllers\WarehouseController;
 use Illuminate\Support\Facades\Route;
@@ -26,6 +27,8 @@ Route::middleware('auth')->group(function () {
     Route::resource('products', ProductController::class);
     Route::resource('warehouse', WarehouseController::class);
     Route::resource('stocks', StockController::class);
+
+    Route::resource('sales', SalesOrderController::class);
 });
 
 require __DIR__ . '/settings.php';
