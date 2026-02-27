@@ -43,6 +43,13 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(\App\Contracts\Services\SalesOrderServiceInterface::class, \App\Services\SalesOrderService::class);
         $this->app->bind(\App\Contracts\Dao\InvoiceDaoInterface::class, \App\Dao\InvoiceDao::class);
 
+        $this->app->bind(
+            \App\Contracts\Dao\AccountingDaoInterface::class,
+            \App\Dao\AccountingDao::class
+        );
+
+        $this->app->bind(\App\Contracts\Dao\PaymentDaoInterface::class, \App\Dao\PaymentDao::class);
+
         // --- Products Module Binding ---
         $this->app->bind(
             \App\Contracts\Dao\ProductDaoInterface::class,
@@ -67,6 +74,14 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(\App\Contracts\Services\WarehouseServiceInterface::class, \App\Services\WarehouseService::class);
         $this->app->bind(\App\Contracts\Dao\StockDaoInterface::class, \App\Dao\StockDao::class);
         $this->app->bind(\App\Contracts\Services\StockServiceInterface::class, \App\Services\StockService::class);
+
+        $this->app->bind(
+            \App\Contracts\Services\AccountingServiceInterface::class,
+            \App\Services\AccountingService::class
+        );
+
+        $this->app->bind(\App\Contracts\Services\PaymentServiceInterface::class, \App\Services\PaymentService::class);
+
     }
 
     /**

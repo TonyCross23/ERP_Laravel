@@ -22,7 +22,7 @@ const mainNavItems: NavItem[] = [
         href: dashboard(),
         icon: LayoutGrid,
     },
-     {
+    {
         title: 'Contacts',
         href: '/contacts',
         icon: PanelTopClose,
@@ -32,7 +32,7 @@ const mainNavItems: NavItem[] = [
         href: '/products',
         icon: SquareXIcon,
     },
-     {
+    {
         title: 'WareHouse',
         href: '/warehouse',
         icon: SquareXIcon,
@@ -42,24 +42,23 @@ const mainNavItems: NavItem[] = [
         href: '/stocks',
         icon: SquareXIcon,
     },
-     {
+    {
         title: 'Sale',
         href: '/sales',
         icon: SquareXIcon,
     },
-];
+    {
+        title: 'Accounting',
+        href: '/accounting/journals',
+        icon: SquareXIcon,
+    },
+    {
+        title: 'Payments',
+        href: '/payments',
+        icon: SquareXIcon,
+    },
 
-const footerNavItems: NavItem[] = [
-    {
-        title: 'Repository',
-        href: 'https://github.com/laravel/react-starter-kit',
-        icon: Folder,
-    },
-    {
-        title: 'Documentation',
-        href: 'https://laravel.com/docs/starter-kits#react',
-        icon: BookOpen,
-    },
+
 ];
 
 export function AppSidebar() {
@@ -82,7 +81,6 @@ export function AppSidebar() {
             </SidebarContent>
 
             <SidebarFooter>
-                <NavFooter items={footerNavItems} className="mt-auto" />
                 <NavUser />
             </SidebarFooter>
         </Sidebar>

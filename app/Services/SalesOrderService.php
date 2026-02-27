@@ -55,13 +55,15 @@ class SalesOrderService implements SalesOrderServiceInterface
             $this->adjustStock($data['product_id'], $data['warehouse_id'], $data['quantity'], 'subtract');
 
             // ၄။ Invoice ထုတ်ခြင်း (total_amount မပါလို့ တက်တဲ့ error ပြင်ပြီး)
-            $this->invoiceDao->createInvoice([
+            $invoice = $this->invoiceDao->createInvoice([
                 'invoice_no'     => $this->invoiceDao->generateInvoiceNumber(),
                 'sales_order_id' => $order->id,
                 'total_amount'   => $data['total_amount'],
                 'amount_paid'    => 0,
                 'status'         => 'unpaid'
             ]);
+
+            app(\App\Contracts\Services\AccountingServiceInterface::class)->recordInvoiceAccounting($invoice);
 
             return $order;
         });

@@ -12,8 +12,8 @@ class Invoice extends Model
     {
         return $this->hasMany(InvoiceLine::class);
     }
-    public function salesOrder()
+    public function sales_order()
     {
-        return $this->belongsTo(SalesOrder::class);
+        return $this->belongsTo(SalesOrder::class, "sales_order_id");
     }
 }
