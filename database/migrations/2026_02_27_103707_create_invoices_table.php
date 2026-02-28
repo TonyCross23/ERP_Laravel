@@ -15,8 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string('invoice_no')->unique();
             $table->foreignId('sales_order_id')->constrained();
-            $table->decimal('amount_paid', 15, 2);
-            $table->enum('status', ['unpaid', 'paid', 'partial']);
+            $table->decimal('total_amount', 15, 2);
+            $table->decimal('amount_paid', 15, 2)->default(0);
+            $table->enum('status', ['unpaid', 'partial', 'paid'])->default('unpaid');
             $table->timestamps();
         });
     }

@@ -6,10 +6,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class Invoice extends Model
 {
-    protected $fillable = ['invoice_no', 'sales_order_id', 'amount_paid', 'status'];
+    protected $fillable = ['invoice_no', 'sales_order_id', 'total_amount', 'amount_paid', 'status'];
 
-    public function salesOrder()
+    public function lines()
     {
-        return $this->belongsTo(SalesOrder::class);
+        return $this->hasMany(InvoiceLine::class);
+    }
+    public function sales_order()
+    {
+        return $this->belongsTo(SalesOrder::class, "sales_order_id");
     }
 }
