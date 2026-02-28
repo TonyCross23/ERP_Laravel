@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class JournalEntry extends Model
 {
-    protected $fillable = ['entry_date', 'reference', 'description', 'total_amount'];
+    protected $fillable = ['date', 'entry_date', 'reference', 'description', 'total_amount', 'payment_id'];
 
     public function items()
     {

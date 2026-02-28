@@ -11,4 +11,9 @@ class PaymentDao implements PaymentDaoInterface
     {
         return Payment::create($data);
     }
+
+    public function getAllPayments()
+    {
+        return Payment::with('invoice.salesOrder.customer')->latest()->get();
+    }
 }

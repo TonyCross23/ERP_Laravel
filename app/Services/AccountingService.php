@@ -20,6 +20,7 @@ class AccountingService implements AccountingServiceInterface
         return DB::transaction(function () use ($invoice) {
             // ၁။ Journal Entry (Header)
             $entry = $this->accountingDao->createJournalEntry([
+                'date'         => now(),
                 'entry_date'   => now(),
                 'reference'    => $invoice->invoice_no,
                 'description'  => "Invoice Recording: " . $invoice->invoice_no,

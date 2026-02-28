@@ -11,10 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
+        Schema::dropIfExists('journal_items');
         Schema::create('journal_items', function (Blueprint $table) {
             $table->id();
             $table->foreignId('journal_entry_id')->constrained()->onDelete('cascade');
-            $table->foreignId('account_id')->constrained();
+            $table->foreignId('account_id')->constrained(); // Chart of Accounts
             $table->decimal('debit', 15, 2)->default(0);
             $table->decimal('credit', 15, 2)->default(0);
             $table->timestamps();

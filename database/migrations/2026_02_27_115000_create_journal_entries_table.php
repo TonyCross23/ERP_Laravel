@@ -11,12 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
+        Schema::dropIfExists('journal_entries');
         Schema::create('journal_entries', function (Blueprint $table) {
             $table->id();
-            $table->date('entry_date');
-            $table->string('reference')->nullable();
-            $table->text('description');
-            $table->decimal('total_amount', 15, 2);
+            $table->date('date');
+            $table->dateTime('entry_date')->nullable(); // System date
+            $table->string('reference')->nullable(); // Invoice No
+            $table->string('description')->nullable();
+            $table->decimal('total_amount', 15, 2)->default(0);
+            $table->foreignId('payment_id')->nullable()->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }
